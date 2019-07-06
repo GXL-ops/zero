@@ -9,6 +9,7 @@
 # pandas常用数据类型，series一维数组，DataFrame二维数组(series容器)
 # pandas读取外部文件
 import pandas as pd
+import numpy as np
 
 df = pd.read_csv("文件目录")
 # pandas读取mysql数据，pd.read_mysql(sql_sentence, connection)
@@ -43,3 +44,13 @@ print(df.info())
 print(df.describe())
 # 数据切割,转换为列表
 print(df["info"].str.split("/").tolist())
+# 获取独一无二的数据
+print(df["info"].str.split("/").unique())
+
+# 双重循环展开操作
+a1 = [i for j in data_list for i in j]
+# 直接用flatten展开，和上面操作一致
+a2 = list(np.array(data_list).flatten())
+# 最大值最小值的位置
+a2.argmax()
+a2.media()
